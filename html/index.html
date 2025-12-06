@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ayyappan Palaniyappan | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Ayyappan Palaniyappan, B.E CSE student and aspiring software developer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#050816;
+            --bg-alt:#0b1020;
+            --accent:#6366f1;
+            --accent-soft:rgba(99,102,241,0.12);
+            --text:#f9fafb;
+            --text-muted:#a1a1aa;
+            --border:rgba(148,163,184,0.25);
+            --card:#0f172a;
+            --shadow:0 18px 40px rgba(15,23,42,0.65);
+            --radius-xl:22px;
+            --radius-lg:16px;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+            background:radial-gradient(circle at top left,#1e293b 0, #020617 45%, #000 100%);
+            color:var(--text);
+            line-height:1.6;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        .container{
+            width:100%;
+            max-width:1120px;
+            margin:0 auto;
+            padding:0 1.25rem;
+        }
+
+        /* Navbar */
+        .nav{
+            position:sticky;
+            top:0;
+            z-index:50;
+            backdrop-filter:blur(18px);
+            background:linear-gradient(to bottom,rgba(15,23,42,0.9),rgba(15,23,42,0.4),transparent);
+            border-bottom:1px solid rgba(148,163,184,0.18);
+        }
+
+        .nav-inner{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:0.85rem 0;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:0.55rem;
+        }
+
+        .brand-avatar{
+            width:38px;
+            height:38px;
+            border-radius:50%;
+            background:radial-gradient(circle at 30% 30%,#4f46e5,#22d3ee);
+            border:2px solid rgba(15,23,42,0.85);
+            box-shadow:0 0 0 1px rgba(148,163,184,0.35);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            letter-spacing:1px;
+            font-size:0.9rem;
+        }
+
+        .brand-text{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .brand-text span:first-child{
+            font-size:0.98rem;
+            font-weight:600;
+        }
+
+        .brand-text span:last-child{
+            font-size:0.7rem;
+            text-transform:uppercase;
+            letter-spacing:0.14em;
+            color:var(--text-muted);
+        }
+
+        .nav-links{
+            display:flex;
+            gap:1.5rem;
+            font-size:0.9rem;
+        }
+
+        .nav-links a{
+            position:relative;
+            color:var(--text-muted);
+            font-weight:400;
+        }
+
+        .nav-links a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:-4px;
+            width:0;
+            height:2px;
+            border-radius:999px;
+            background:linear-gradient(90deg,#6366f1,#22d3ee);
+            transition:width 0.2s ease;
+        }
+
+        .nav-links a:hover{
+            color:var(--text);
+        }
+
+        .nav-links a:hover::after{
+            width:100%;
+        }
+
+        /* Hero */
+        .hero{
+            padding:3.5rem 0 3.75rem;
+        }
+
+        .hero-inner{
+            display:grid;
+            grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr);
+            gap:2.75rem;
+            align-items:center;
+        }
+
+        .eyebrow{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            padding:0.18rem 0.55rem;
+            border-radius:999px;
+            font-size:0.72rem;
+            text-transform:uppercase;
+            letter-spacing:0.18em;
+            background:linear-gradient(120deg,rgba(99,102,241,0.12),rgba(14,165,233,0.08));
+            border:1px solid rgba(99,102,241,0.5);
+            color:var(--text-muted);
+            margin-bottom:0.9rem;
+        }
+
+        .eyebrow-dot{
+            width:7px;
+            height:7px;
+            border-radius:999px;
+            background:radial-gradient(circle,#22c55e,#22c55e 40%,transparent 75%);
+            box-shadow:0 0 0 4px rgba(34,197,94,0.25);
+        }
+
+        .hero-title{
+            font-size:2.4rem;
+            line-height:1.1;
+            margin-bottom:0.75rem;
+        }
+
+        .hero-title span.highlight{
+            background:linear-gradient(120deg,#a855f7,#6366f1,#22c55e,#22d3ee);
+            -webkit-background-clip:text;
+            background-clip:text;
+            color:transparent;
+            white-space:nowrap;
+        }
+
+        .hero-subtitle{
+            font-size:0.98rem;
+            color:var(--text-muted);
+            margin-bottom:1.5rem;
+            max-width:520px;
+        }
+
+        .hero-subtitle strong{
+            font-weight:600;
+        }
+
+        .hero-tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.5rem;
+            margin-bottom:1.7rem;
+        }
+
+        .tag{
+            font-size:0.76rem;
+            padding:0.18rem 0.6rem;
+            border-radius:999px;
+            border:1px solid rgba(148,163,184,0.45);
+            background:radial-gradient(circle at top left,rgba(148,163,184,0.18),rgba(15,23,42,0.9));
+            color:var(--text-muted);
+        }
+
+        .hero-actions{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.8rem;
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:0.45rem;
+            padding:0.55rem 1.25rem;
+            border-radius:999px;
+            font-size:0.9rem;
+            font-weight:500;
+            cursor:pointer;
+            border:1px solid transparent;
+            background:none;
+            color:var(--text);
+        }
+
+        .btn-primary{
+            background:linear-gradient(120deg,#6366f1,#22d3ee);
+            border:none;
+            box-shadow:0 14px 30px rgba(56,189,248,0.35);
+        }
+
+        .btn-primary:hover{
+            filter:brightness(1.02);
+            transform:translateY(-1px);
+        }
+
+        .btn-ghost{
+            border:1px solid rgba(148,163,184,0.7);
+            background:radial-gradient(circle at top left,rgba(148,163,184,0.12),rgba(15,23,42,0.95));
+        }
+
+        .btn-ghost:hover{
+            border-color:rgba(148,163,184,0.95);
+            background:radial-gradient(circle at top left,rgba(148,163,184,0.2),rgba(15,23,42,0.95));
+        }
+
+        .btn-icon{
+            font-size:1.15rem;
+        }
+
+        .hero-right{
+            display:flex;
+            justify-content:flex-end;
+        }
+
+        .hero-card{
+            width:100%;
+            max-width:360px;
+            border-radius:var(--radius-xl);
+            background:radial-gradient(circle at top,#1e293b 0,#020617 45%);
+            padding:1.1rem;
+            border:1px solid rgba(148,163,184,0.4);
+            box-shadow:var(--shadow);
+            position:relative;
+            overflow:hidden;
+        }
+
+        .hero-badge{
+            position:absolute;
+            top:14px;
+            right:16px;
+            font-size:0.7rem;
+            padding:0.16rem 0.65rem;
+            border-radius:999px;
+            border:1px solid rgba(52,211,153,0.75);
+            color:#bbf7d0;
+            background:rgba(22,163,74,0.12);
+        }
+
+        .hero-avatar-large{
+            width:86px;
+            height:86px;
+            border-radius:30px;
+            background:radial-gradient(circle at 20% 10%,#22d3ee,#6366f1 55%,#4c1d95);
+            border:2px solid rgba(15,23,42,0.9);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.5rem;
+            font-weight:700;
+            margin-bottom:0.85rem;
+            box-shadow:0 14px 30px rgba(59,130,246,0.6);
+        }
+
+        .hero-card h2{
+            font-size:1rem;
+            margin-bottom:0.15rem;
+        }
+
+        .hero-card p.role{
+            font-size:0.82rem;
+            color:var(--text-muted);
+            margin-bottom:0.7rem;
+        }
+
+        .hero-meta{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.55rem;
+            margin-bottom:0.9rem;
+        }
+
+        .meta-pill{
+            font-size:0.75rem;
+            padding:0.2rem 0.55rem;
+            border-radius:999px;
+            background:rgba(15,23,42,0.9);
+            border:1px solid rgba(148,163,184,0.35);
+            color:var(--text-muted);
+        }
+
+        .hero-status{
+            font-size:0.78rem;
+            padding:0.55rem 0.7rem;
+            border-radius:var(--radius-lg);
+            border:1px dashed rgba(74,222,128,0.6);
+            background:rgba(22,163,74,0.12);
+            color:#bbf7d0;
+            margin-bottom:0.7rem;
+        }
+
+        .hero-stacks{
+            font-size:0.78rem;
+            color:var(--text-muted);
+        }
+
+        .hero-stacks strong{
+            color:var(--text);
+            font-weight:500;
+        }
+
+        /* Sections */
+        section{
+            padding:2.5rem 0;
+        }
+
+        .section-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-end;
+            gap:1rem;
+            margin-bottom:1.5rem;
+        }
+
+        .section-title{
+            font-size:1.15rem;
+        }
+
+        .section-title span{
+            color:var(--accent);
+        }
+
+        .section-subtitle{
+            font-size:0.8rem;
+            color:var(--text-muted);
+        }
+
+        /* About */
+        .about-grid{
+            display:grid;
+            grid-template-columns:minmax(0,1.7fr) minmax(0,1.2fr);
+            gap:1.75rem;
+        }
+
+        .card{
+            background:radial-gradient(circle at top left,rgba(148,163,184,0.15),rgba(15,23,42,0.96));
+            border-radius:var(--radius-xl);
+            border:1px solid var(--border);
+            padding:1.25rem 1.3rem;
+        }
+
+        .about-text{
+            font-size:0.92rem;
+            color:var(--text-muted);
+        }
+
+        .about-text p + p{
+            margin-top:0.7rem;
+        }
+
+        .about-meta-list{
+            list-style:none;
+            display:grid;
+            gap:0.45rem;
+            margin-top:1rem;
+            font-size:0.85rem;
+            color:var(--text-muted);
+        }
+
+        .about-meta-list strong{
+            color:var(--text);
+        }
+
+        .stat-grid{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:0.8rem;
+            margin-top:0.4rem;
+        }
+
+        .stat-box{
+            padding:0.6rem 0.7rem;
+            border-radius:var(--radius-lg);
+            background:rgba(15,23,42,0.95);
+            border:1px solid rgba(148,163,184,0.45);
+            font-size:0.78rem;
+        }
+
+        .stat-label{
+            color:var(--text-muted);
+        }
+
+        .stat-value{
+            font-size:1rem;
+            font-weight:600;
+        }
+
+        /* Skills */
+        .skills-grid{
+            display:grid;
+            grid-template-columns:2.1fr 1.3fr;
+            gap:1.6rem;
+        }
+
+        .skill-tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.5rem;
+        }
+
+        .skill-pill{
+            font-size:0.78rem;
+            padding:0.27rem 0.7rem;
+            border-radius:999px;
+            border:1px solid rgba(148,163,184,0.55);
+            background:radial-gradient(circle at top left,rgba(148,163,184,0.2),rgba(15,23,42,0.96));
+        }
+
+        .skill-group-title{
+            font-size:0.8rem;
+            text-transform:uppercase;
+            letter-spacing:0.16em;
+            color:var(--text-muted);
+            margin-bottom:0.55rem;
+        }
+
+        .skill-bars{
+            display:grid;
+            gap:0.6rem;
+            font-size:0.82rem;
+        }
+
+        .skill-bar-row{
+            display:flex;
+            flex-direction:column;
+            gap:0.14rem;
+        }
+
+        .skill-bar-header{
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .skill-bar-track{
+            width:100%;
+            height:6px;
+            border-radius:999px;
+            background:rgba(30,64,175,0.4);
+            overflow:hidden;
+        }
+
+        .skill-bar-fill{
+            height:100%;
+            border-radius:999px;
+            background:linear-gradient(90deg,#6366f1,#22d3ee);
+        }
+
+        /* Projects */
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:1.2rem;
+        }
+
+        .project-card{
+            background:radial-gradient(circle at top left,rgba(99,102,241,0.18),rgba(15,23,42,0.96));
+            border-radius:var(--radius-xl);
+            border:1px solid rgba(99,102,241,0.6);
+            padding:1rem;
+            display:flex;
+            flex-direction:column;
+            gap:0.55rem;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .project-pill{
+            position:absolute;
+            top:10px;
+            right:10px;
+            font-size:0.7rem;
+            padding:0.16rem 0.55rem;
+            border-radius:999px;
+            background:rgba(15,23,42,0.95);
+            border:1px solid rgba(129,140,248,0.8);
+            color:#c7d2fe;
+        }
+
+        .project-title{
+            font-size:0.96rem;
+            font-weight:500;
+        }
+
+        .project-desc{
+            font-size:0.82rem;
+            color:var(--text-muted);
+        }
+
+        .project-meta{
+            margin-top:0.3rem;
+            font-size:0.78rem;
+            color:var(--text-muted);
+        }
+
+        .project-tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.3rem;
+            margin-top:0.5rem;
+        }
+
+        .project-tag{
+            font-size:0.72rem;
+            padding:0.15rem 0.5rem;
+            border-radius:999px;
+            background:rgba(15,23,42,0.94);
+            border:1px solid rgba(148,163,184,0.6);
+        }
+
+        .project-link{
+            margin-top:0.6rem;
+            font-size:0.82rem;
+            display:inline-flex;
+            align-items:center;
+            gap:0.26rem;
+            color:#a5b4fc;
+        }
+
+        /* Timeline */
+        .timeline{
+            border-left:1px dashed rgba(148,163,184,0.45);
+            padding-left:1rem;
+            margin-top:0.4rem;
+        }
+
+        .timeline-item{
+            margin-bottom:0.95rem;
+            position:relative;
+        }
+
+        .timeline-dot{
+            width:9px;
+            height:9px;
+            border-radius:999px;
+            background:radial-gradient(circle,#6366f1,#22d3ee);
+            position:absolute;
+            left:-1.45rem;
+            top:0.3rem;
+            box-shadow:0 0 0 4px rgba(79,70,229,0.3);
+        }
+
+        .timeline-title{
+            font-size:0.9rem;
+        }
+
+        .timeline-sub{
+            font-size:0.78rem;
+            color:var(--text-muted);
+        }
+
+        .timeline-meta{
+            font-size:0.72rem;
+            color:var(--text-muted);
+            margin-top:0.1rem;
+        }
+
+        /* Contact */
+        .contact-list{
+            list-style:none;
+            display:grid;
+            gap:0.65rem;
+            font-size:0.86rem;
+        }
+
+        .contact-item-label{
+            font-size:0.78rem;
+            text-transform:uppercase;
+            letter-spacing:0.16em;
+            color:var(--text-muted);
+        }
+
+        .contact-value{
+            font-size:0.92rem;
+        }
+
+        .contact-note{
+            font-size:0.8rem;
+            color:var(--text-muted);
+            margin-top:0.6rem;
+        }
+
+        /* Footer */
+        footer{
+            padding:1.5rem 0 2rem;
+            border-top:1px solid rgba(30,64,175,0.65);
+            margin-top:2rem;
+        }
+
+        .footer-inner{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            gap:0.7rem;
+            font-size:0.78rem;
+            color:var(--text-muted);
+        }
+
+        .footer-links{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.9rem;
+        }
+
+        .footer-links a{
+            text-decoration:underline;
+            text-decoration-style:dotted;
+        }
+
+        /* Responsive */
+        @media (max-width:900px){
+            .hero-inner{
+                grid-template-columns:1fr;
+            }
+            .hero-right{
+                justify-content:flex-start;
+            }
+            .skills-grid,
+            .about-grid{
+                grid-template-columns:1fr;
+            }
+            .projects-grid{
+                grid-template-columns:repeat(2,minmax(0,1fr));
+            }
+        }
+
+        @media (max-width:640px){
+            .nav-inner{
+                flex-direction:column;
+                align-items:flex-start;
+                gap:0.6rem;
+            }
+            .hero{
+                padding-top:2.2rem;
+            }
+            .hero-title{
+                font-size:2rem;
+            }
+            .hero-card{
+                max-width:100%;
+            }
+            .projects-grid{
+                grid-template-columns:1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="nav">
+    <div class="container nav-inner">
+        <div class="brand">
+            <div class="brand-avatar">AP</div>
+            <div class="brand-text">
+                <span>Ayyappan Palaniyappan</span>
+                <span>B.E CSE · JJ College</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#journey">Journey</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div>
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    <span>Student · Developer · Problem Solver</span>
+                </div>
+                <h1 class="hero-title">
+                    Hi, I’m <span class="highlight">Ayyappan</span><br>
+                    I turn logic into code.
+                </h1>
+                <p class="hero-subtitle">
+                    I’m a <strong>B.E CSE student at J.J. College of Engineering and Technology</strong>, exploring the world of programming
+                    through C, C++, Java, Python and .NET. I enjoy solving problem-based questions and building simple apps that
+                    actually run on real machines.
+                </p>
+
+                <div class="hero-tags">
+                    <span class="tag">B.E CSE · JJ College</span>
+                    <span class="tag">Aspiring Software Developer</span>
+                    <span class="tag">Python · Java · C / C++</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View my projects</span>
+                        <span class="btn-icon">⬇</span>
+                    </a>
+                    <a href="#contact" class="btn btn-ghost">
+                        <span>Let’s connect</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <aside class="hero-card">
+                    <span class="hero-badge">Open to Internships</span>
+                    <div class="hero-avatar-large">AP</div>
+                    <h2>Ayyappan Palaniyappan</h2>
+                    <p class="role">B.E CSE · J.J. College of Engineering and Technology</p>
+
+                    <div class="hero-meta">
+                        <span class="meta-pill">India · CSE Student</span>
+                        <span class="meta-pill">PC: ASUS TUF Gaming A15</span>
+                        <span class="meta-pill">Windows 11 User</span>
+                    </div>
+
+                    <div class="hero-status">
+                        Currently focused on writing clean code in C, C++, Java and Python, and
+                        building small apps to strengthen core logic and problem-solving.
+                    </div>
+
+                    <div class="hero-stacks">
+                        <strong>Core tools:</strong> C, C++, Java, Python, .NET, Git, VS / VS Code<br>
+                        <strong>Interests:</strong> Coding education, console apps, math & logic problems.
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <p class="section-subtitle">
+                    A curious CSE student building from fundamentals.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="card">
+                    <div class="about-text">
+                        <p>
+                            I am <strong>Ayyappan Palaniyappan</strong>, a Computer Science and Engineering student
+                            at <strong>J.J. College of Engineering and Technology</strong>. I like understanding how code
+                            really works inside, not just getting the output somehow.
+                        </p>
+                        <p>
+                            I practice using many small programs like number problems, loops, arrays, math logic,
+                            conversions and more — then slowly convert them into useful console applications.
+                        </p>
+                        <p>
+                            My goal is to grow into a developer who writes simple, readable, human-style code and
+                            eventually work on tools that make it easier for others to learn programming.
+                        </p>
+                    </div>
+
+                    <ul class="about-meta-list">
+                        <li><strong>Degree:</strong> B.E Computer Science and Engineering</li>
+                        <li><strong>College:</strong> J.J. College of Engineering and Technology</li>
+                        <li><strong>Location:</strong> India (IST · UTC+5:30)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div class="stat-label">Primary Focus</div>
+                            <div class="stat-value">Problem Solving</div>
+                            <div class="stat-label">Logic · Loops · Arrays</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Comfort Zone</div>
+                            <div class="stat-value">C / C++ / Java</div>
+                            <div class="stat-label">Intermediate</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Tools I Use</div>
+                            <div class="stat-value">VS & VS Code</div>
+                            <div class="stat-label">Windows 11 · Git</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Learning Style</div>
+                            <div class="stat-value">Build & Debug</div>
+                            <div class="stat-label">Hands-on practice</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tech <span>Skills</span></h2>
+                <p class="section-subtitle">
+                    The technologies I’m exploring and building with right now.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Languages & Core</h3>
+                        <div class="skill-tags">
+                            <span class="skill-pill">C</span>
+                            <span class="skill-pill">C++</span>
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">.NET (Basics)</span>
+                            <span class="skill-pill">Data Types & Control Flow</span>
+                            <span class="skill-pill">Functions</span>
+                            <span class="skill-pill">Arrays & Strings</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group" style="margin-top:1.2rem;">
+                        <h3 class="skill-group-title">Tools & Environment</h3>
+                        <div class="skill-tags">
+                            <span class="skill-pill">Visual Studio</span>
+                            <span class="skill-pill">Visual Studio Code</span>
+                            <span class="skill-pill">Git (Basics)</span>
+                            <span class="skill-pill">Windows 11</span>
+                            <span class="skill-pill">ASUS TUF Gaming A15</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="skill-bars">
+                        <div class="skill-bar-row">
+                            <div class="skill-bar-header">
+                                <span>C / C++</span>
+                                <span>Intermediate</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width:72%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-row">
+                            <div class="skill-bar-header">
+                                <span>Java</span>
+                                <span>Intermediate</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width:68%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-row">
+                            <div class="skill-bar-header">
+                                <span>Python</span>
+                                <span>Good</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width:78%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-row">
+                            <div class="skill-bar-header">
+                                <span>.NET & C# (Console / WinForms)</span>
+                                <span>Basics</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width:45%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-row">
+                            <div class="skill-bar-header">
+                                <span>Problem Solving</span>
+                                <span>Growing</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width:70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="contact-note" style="margin-top:0.8rem;">
+                        * These levels are approximate and based on my current learning stage.
+                        I keep improving them with regular practice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span>Projects</span></h2>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <span class="project-pill">.NET · Desktop</span>
+                    <h3 class="project-title">Calculator App (.NET)</h3>
+                    <p class="project-desc">
+                        A simple calculator application built using .NET, focusing on clean logic,
+                        basic operations and a straightforward UI. Created to understand event handling,
+                        form design and connecting UI with backend logic.
+                    </p>
+                    <div class="project-meta">
+                        <strong>What I learned:</strong> Windows Forms, event-driven programming,
+                        debugging runtime errors.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">C#</span>
+                        <span class="project-tag">.NET</span>
+                        <span class="project-tag">WinForms</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <span class="project-pill">Console · Logic</span>
+                    <h3 class="project-title">Problem-Solving Programs</h3>
+                    <p class="project-desc">
+                        A collection of programs in C, C++ and Java like minimum denomination finder,
+                        Harshad number checker, factorial, sum of digits, divisors, natural number sum
+                        and more.
+                    </p>
+                    <div class="project-meta">
+                        <strong>What I learned:</strong> loops, conditions, input/output formatting,
+                        mathematical logic, user-defined functions.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">C</span>
+                        <span class="project-tag">C++</span>
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">Math Logic</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <span class="project-pill">Concept · EdTech</span>
+                    <h3 class="project-title">STEM Quest – Learning App Concept</h3>
+                    <p class="project-desc">
+                        A conceptual design for an educational platform called <em>STEM Quest</em>,
+                        including modules for students, teachers, parents and admins with gamified learning,
+                        analytics, challenges and strong privacy.
+                    </p>
+                    <div class="project-meta">
+                        <strong>What I learned:</strong> thinking about features, user roles, and how
+                        a real product is structured from idea to modules.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Product Thinking</span>
+                        <span class="project-tag">EdTech</span>
+                        <span class="project-tag">Documentation</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey / Timeline -->
+    <section id="journey">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span>Journey</span></h2>
+                <p class="section-subtitle">
+                    How I’m growing step by step as a developer.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3 class="timeline-title">Joined B.E CSE at JJ College</h3>
+                        <p class="timeline-sub">Started focusing seriously on computer science fundamentals.</p>
+                        <p class="timeline-meta">C, C++ basics · college lab programs · intro to problem solving</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3 class="timeline-title">Practicing Console Programs</h3>
+                        <p class="timeline-sub">Built many programs for loops, arrays, numbers & logic.</p>
+                        <p class="timeline-meta">Harshad numbers · factorial · divisors · octal/binary conversion etc.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3 class="timeline-title">Exploring .NET and Visual Studio</h3>
+                        <p class="timeline-sub">Setup development environment, created calculator and sample apps.</p>
+                        <p class="timeline-meta">Learned about IDEs, debugging, project structure.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <h3 class="timeline-title">Thinking Beyond Just Code</h3>
+                        <p class="timeline-sub">Started imagining real products like STEM Quest with modules & roles.</p>
+                        <p class="timeline-meta">Student/Teacher dashboards · gamification · analytics ideas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact <span>Me</span></h2>
+                <p class="section-subtitle">
+                    Want to collaborate, share opportunities, or just talk about code? Reach out!
+                </p>
+            </div>
+
+            <div class="card">
+                <ul class="contact-list">
+                    <li>
+                        <div class="contact-item-label">Primary Email</div>
+                        <div class="contact-value">
+                            ayyappan.p1208@gmail.com
+                        </div>
+                    </li>
+                    <li>
+                        <div class="contact-item-label">Secondary Email</div>
+                        <div class="contact-value">
+                            plicentring9876@gmail.com
+                        </div>
+                    </li>
+                    <li>
+                        <div class="contact-item-label">GitHub</div>
+                        <div class="contact-value">
+                            <a href="https://github.com/ayyappan1221" target="_blank" rel="noopener">
+                                github.com/ayyappan1221
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="contact-item-label">LinkedIn</div>
+                        <div class="contact-value">
+                            <a href="https://www.linkedin.com/in/ayyappan-p-a83b6b327/" target="_blank" rel="noopener">
+                                linkedin.com/in/ayyappan-p-a83b6b327
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <p class="contact-note">
+                    I’m open to internships, beginner-friendly projects and guidance from seniors.
+                    Feel free to email or ping me on GitHub / LinkedIn.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <span>© <span id="year"></span> · Built by Ayyappan Palaniyappan</span>
+        <div class="footer-links">
+            <a href="#top" onclick="scrollTo(0,0);return false;">Back to top ↑</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
