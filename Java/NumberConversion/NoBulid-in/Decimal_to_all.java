@@ -19,5 +19,6 @@ public class Decimal_to_all {
         }
 
         System.out.println("Binary = " + binary);
+        sc.close();
     }
 }
